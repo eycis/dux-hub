@@ -1,0 +1,94 @@
+Projekt: DUX Experiment & Feedback Hub
+
+Webová appka pro správu UX experimentů (A/B testů) a sběr uživatelských feedbacků.
+Uživatelé (product/UX) mohou:
+
+zakládat experimenty (název, hypotéza, metriky, varianty A/B),
+
+sledovat události/metry (konverze, kliky, čas na stránce),
+
+evidovat feedback (text, kategorie, sentiment),
+
+vidět přehledy & grafy (agregace metrik, filtrování podle času/varianty).
+
+Technologie:
+
+Backend (Python): FastAPI + SQLAlchemy/SQLModel, PostgreSQL, JWT auth, Pydantic validace, Alembic migrace, PyTest.
+
+Frontend (Angular): Angular 17+, Angular Material, RxJS, Reactive Forms, HttpClient, Router, ngx-charts (nebo ng-apexcharts).
+
+Infra: Docker + docker-compose, pre-commit, Ruff/Black (lint/format), GitHub Actions (CI).
+
+Doménový model (minimum)
+
+Experiment
+
+id, name, hypothesis, status (draft/running/paused), created_at
+
+variants: [“A”, “B”] (M:N přes tabulku variant)
+
+MetricEvent
+
+id, experiment_id, variant (“A”/“B”), event_type (“conversion”/“click”/…),
+
+value (float/int), occurred_at (timestamp)
+
+Feedback
+
+id, experiment_id, author (text), message, category (“usability”, “bug”, …), sentiment (-1..1), created_at
+
+User
+
+id, email, password_hash, role (“admin”, “viewer”)
+
+API návrh (REST)
+
+POST /auth/login → vrátí JWT
+
+GET /experiments / POST /experiments / GET /experiments/{id} / PUT /experiments/{id} / DELETE /experiments/{id}
+
+GET /experiments/{id}/metrics?from=&to=&variant= → agregace (sum/count/avg, group by day/variant)
+
+POST /experiments/{id}/events (příjem sledovacích událostí)
+
+GET /experiments/{id}/feedback / POST /experiments/{id}/feedback
+
+GET /me (profil)
+
+Autorizace: admin může CRUD vše; viewer jen číst.
+
+Naučíš se
+
+Python/FastAPI: dependency injection, pydantic schémata, datové modely, migrace, autentizace JWT, pagination, filtrování, agregace nad SQL.
+
+Angular: architektura feature modulů, služby (services), interceptory (přidání JWT), Reactive Forms, Material tabulky a filtry, grafy, guardy, RxJS (switchMap, shareReplay).
+
+Testy & DevOps: PyTest + Angular TestBed, docker-compose pro lokální stack, základ CI.
+
+Roadmap (4 minisweeks)
+
+S1 – Základ & Auth
+
+Backend: FastAPI skeleton, DB modely, registrace seed uživatele, /auth/login.
+
+Frontend: Angular app, Material, routing, login page, uložení JWT, interceptor.
+
+S2 – CRUD + seznamy
+
+Backend: /experiments CRUD, validace, migrace.
+
+Frontend: tabulka experimentů (paginace, řazení), detail experimentu (read/edit), formuláře.
+
+S3 – Eventy, agregace, grafy
+
+Backend: POST /events, GET /experiments/{id}/metrics s from/to/variant a group by day+variant.
+
+Frontend: stránka “Metrics” s datumovým filtrem, select varianty, line/bar chart + cards se sum/avg.
+
+S4 – Feedback + testy + docker
+
+Backend: /feedback endpoints, základní sentiment (jednoduché skóre: +1/0/-1).
+
+Frontend: přidávání feedbacku (Reactive Form), seznam + filtry.
+
+PyTest pro services, Angular unit test pár komponent, docker-compose (api + db + web).
