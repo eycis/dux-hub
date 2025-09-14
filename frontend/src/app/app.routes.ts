@@ -1,4 +1,5 @@
 import { Routes } from '@angular/router';
+import { ExperimentComponent } from './experiment/experiment.component';
 
 export const routes: Routes = [
     {
@@ -12,28 +13,28 @@ export const routes: Routes = [
         path: "experiments",
         pathMatch: "full",
         loadComponent : () => {
-            return import("./home/home.component").then((m)=> m.HomeComponent);
+            return import("./experiment/experiment.component").then((m)=> ExperimentComponent);
         },
     },
     {
         path: "feedback",
         pathMatch: "full",
         loadComponent : () => {
-            return import("./home/home.component").then((m)=> m.HomeComponent);
+            return import("./feedback/feedback.component").then((m)=> m.FeedbackComponent);
         },
     },
     {
         path: "reports",
         pathMatch: "full",
         loadComponent : () => {
-            return import("./home/home.component").then((m)=> m.HomeComponent);
+            return import("./report/report.component").then((m)=> m.ReportComponent);
         },
     },
     {
-        path: "integration",
+        path: "integrations",
         pathMatch: "full",
         loadComponent : () => {
-            return import("./home/home.component").then((m)=> m.HomeComponent);
+            return import("./integrations/integrations.component").then((m)=> m.IntegrationsComponent);
         },
     },
 ];
