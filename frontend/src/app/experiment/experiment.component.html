@@ -1,1 +1,3 @@
-<p>experiment works!</p>
+@for (experiment of experimentList(); track experiment.userId) {
+    <p>{{experiment.name}}</p>
+}
