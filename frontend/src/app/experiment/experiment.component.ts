@@ -1,6 +1,7 @@
 import { Component, inject, OnInit, signal } from '@angular/core';
 import { ExperimentsService } from '../services/experiments.service';
 import { Experiment } from '../model/experiment.type';
+import { catchError } from 'rxjs';
 
 @Component({
   selector: 'app-experiment',
@@ -15,5 +16,12 @@ export class ExperimentComponent implements OnInit{
   ngOnInit(): void {
     console.log(this.experimentService.experimentList);
     this.experimentList.set(this.experimentService.experimentList); 
+    //get the data from api: 
+  //   this.experimentService.getExperiments().pipe(catchError((error)=> {
+  //     console.log(error);
+  //     throw error;
+  //   })).subscribe((experiments) => {
+  //     this.experimentList.set(experiments);
+  //   });
   }
 }

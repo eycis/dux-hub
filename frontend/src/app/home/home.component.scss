@@ -1,5 +1,60 @@
-// home{
-//     height:100vh;
-//     width: 100%;
-//     display: flex;
-// }
+home{
+    height:100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+h1{
+    padding-inline: 18px;
+    font-size:x-large;
+}
+
+h2{
+    padding-inline: 18px;
+    font-size: medium;
+}
+
+.add{
+    background-color:rgb(44, 120, 143);
+    color:white;
+    padding-inline: 28px;
+    padding-block: 10px;
+    margin-right: 18px;
+    border-radius: 14px;
+    border: 0px;
+    &:hover{
+        background-color:rgb(31, 84, 100);
+    }
+}
+
+.dashboard-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+p{
+    font-size: small;
+    color:rgb(68, 69, 69)
+}
+
+.overview-number{
+    font-size: larger;
+    font-weight: bolder;
+    color:rgb(68, 69, 69);
+}
+
+.experiment-type{
+    background-color: white;
+    border-radius: 20px;
+    flex:1;
+    padding: 12px;
+    border: 2px solid rgb(199, 202, 202);
+}
+
+.experiments-overview{
+    display: flex;
+    gap: 16px;
+    padding: 16px;
+}
