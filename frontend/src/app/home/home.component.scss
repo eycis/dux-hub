@@ -19,7 +19,7 @@ h2{
     background-color:rgb(44, 120, 143);
     color:white;
     padding-inline: 28px;
-    padding-block: 10px;
+    padding-block: 14px;
     margin-right: 18px;
     border-radius: 14px;
     border: 0px;
@@ -36,6 +36,7 @@ h2{
 
 p{
     font-size: small;
+    margin: 10px;
     color:rgb(68, 69, 69)
 }
 
@@ -57,4 +58,26 @@ p{
     display: flex;
     gap: 16px;
     padding: 16px;
+}
+
+.comment-tile{
+    gap: 16px;
+    background-color: white;
+    border-radius: 10px;
+    margin: 20px;
+    flex:1;
+    padding-block: 24px;
+    border: 2px solid rgb(199, 202, 202);
+}
+
+.comment-text{
+    margin-left: 18px;
+    margin-top: 2px;
+    font-size:smaller;
+}
+
+h3{
+    padding-inline: 18px;
+    margin-top: 2px;
+    font-size: small;
 }

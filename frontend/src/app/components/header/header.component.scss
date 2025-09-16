@@ -3,7 +3,7 @@ header {
     padding-inline: 18px;
     padding-block: 8px;
     background-color: rgb(236, 236, 236);
-    border-bottom: 2px solid rgb(173, 173, 173);
+    border-bottom: 2px solid rgb(205, 202, 202);
     color: rgb(36, 36, 36);
     align-items: center;
     justify-content: space-between;
@@ -19,6 +19,7 @@ nav{
     width: 100%;
 
     > span{
+        margin-left: 24px;
         cursor: pointer;
         &:hover{
             color:rgb(44, 120, 143)
