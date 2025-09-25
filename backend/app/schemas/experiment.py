@@ -12,6 +12,7 @@ class ExperimentUpdate(BaseModel):
     name: str = Field(min_length=1, max_length=200)
     hypothesis: Optional[str] = Field(default=None, min_length=1, max_length=1000)
     status: str = Field(min_length=1, max_length=200)
+
 class ExperimentRead(BaseModel): 
     id:int
     name:str
