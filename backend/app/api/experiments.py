@@ -1,7 +1,7 @@
 from fastapi import FastAPI, Depends, HTTPException, APIRouter
 # import schemas.experiment
 from app.services.experiment_service import ExperimentService
-from app.schemas.experiment import ExperimentRead, ExperimentCreate
+from app.schemas.experiment import ExperimentRead, ExperimentCreate, ExperimentUpdate
 # from backend.app import schemas, services
 from app.db import get_db
 from sqlalchemy.orm import Session
@@ -16,3 +16,7 @@ async def list_experiments(db: Session = Depends(get_db)):
 @router.post("/", response_model = ExperimentRead, status_code=201)
 async def create_experiment(experiment: ExperimentCreate, db: Session = Depends(get_db)):
     return ExperimentService(db).create_experiment(experiment)
+
+@router.put("/{experiment_id}", response_model = ExperimentRead, status_code=201)
+async def update_experiment(experiment_id: int, experiment: ExperimentUpdate, db: Session = Depends(get_db)):
+    return ExperimentService(db).update_experiment(experiment_id, experiment)
