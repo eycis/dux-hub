@@ -1,8 +1,6 @@
 export type Experiment = {
-    userId: number;
-    variants: string;
+    Id: number;
     name: string;
     hypothesis: string;
     status: string;
-    objectiveMetric: string;
 }

@@ -4,8 +4,7 @@
 
 
 <ul>
-    @for (experiment of experimentList(); track experiment.userId) {
-        <!-- TODO: create an experiment component and display this in it: -->
+    @for (experiment of experimentList(); track experiment.Id) {
         <li class="experiment_item">
             <h4>{{experiment.name}}</h4>
             <p>{{experiment.hypothesis}}</p>

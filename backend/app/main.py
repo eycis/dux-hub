@@ -6,7 +6,8 @@ Sets up middleware, routes and configuration.
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from app.core.settings import settings
-from app.api.routes import router as api_router
+# from app.api.routes import router as api_router
+from app.api.experiments import router as experiments_router
 
 app = FastAPI(title="DUX Hub API")
 
@@ -18,4 +19,4 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-app.include_router(api_router, prefix=settings.API_PREFIX)
+app.include_router(experiments_router, prefix="/experiments", tags=["experiments"])

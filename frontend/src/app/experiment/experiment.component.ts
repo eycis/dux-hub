@@ -10,18 +10,18 @@ import { catchError } from 'rxjs';
   styleUrl: './experiment.component.scss'
 })
 export class ExperimentComponent implements OnInit{
-  experimentService = inject(ExperimentsService);
+  private experimentService = inject(ExperimentsService);
   experimentList = signal<Array<Experiment>>([]);
 
   ngOnInit(): void {
-    console.log(this.experimentService.experimentList);
-    this.experimentList.set(this.experimentService.experimentList); 
-    //get the data from api: 
-  //   this.experimentService.getExperiments().pipe(catchError((error)=> {
-  //     console.log(error);
-  //     throw error;
-  //   })).subscribe((experiments) => {
-  //     this.experimentList.set(experiments);
-  //   });
+    this.experimentService.getExperiments()
+      .pipe().subscribe({
+        next: (data) => {
+          this.experimentList.set(data);
+        },
+        error: (error) => {
+          console.error(error);
+        }
+      });
   }
 }
