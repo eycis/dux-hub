@@ -20,5 +20,6 @@ class ExperimentService:
         self.db.refresh(experiment_instance)
         return experiment_instance
 
+#TODO: update to modern syntax: 
     def get_experiments(self):
         return self.db.execute(select(Experiment)).scalars().all()

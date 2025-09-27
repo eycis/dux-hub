@@ -12,22 +12,19 @@
     <article class="experiment-type">
         <p>Running</p>
         <p class="overview-number">
-            <!-- TODO: switch to experiment.running.length:-->
-            5
+            {{experimentList() | statusCount: "running"}}
         </p>
     </article>
     <article class="experiment-type">
         <p> Draft</p>
         <p class="overview-number">
-            <!-- TODO: switch to experiment.running.length:-->
-            5
+            {{experimentList() | statusCount: "draft"}}
         </p>
     </article>
     <article class="experiment-type">
         <p> Completed</p>
         <p class="overview-number">
-            <!-- TODO: switch to experiment.running.length:-->
-            5
+            {{experimentList() | statusCount: "completed"}}
         </p>
     </article>
 </section>
