@@ -1,0 +1,57 @@
+.experiment-details{
+    background-color: white;
+    border-radius: 10px;
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
+    padding-block: 20px;
+    border: 2px solid rgb(199, 202, 202);
+}
+
+.metrics-details{
+    background-color: white;
+    border-radius: 10px;
+    margin: 20px;
+    flex-direction: column;
+    padding-block: 20px;
+    border: 2px solid rgb(199, 202, 202);
+}
+
+.metrics-row{
+    display: flex;
+}
+
+h1{
+    padding-inline: 18px;
+    font-size:x-large;
+}
+
+h2{
+    padding-inline: 18px;
+    font-size: medium;
+}
+
+
+p{
+    font-size: small;
+    margin: 10px;
+    margin-inline: 20px;
+    color:rgb(68, 69, 69)
+}
+
+.input-name {
+    background-color: rgb(250, 247, 247);
+    border-radius: 10px;
+    display: flex;
+    margin-inline: 20px;
+    padding-block: 10px;
+    border: 2px solid rgb(199, 202, 202);
+}
+
+.body{
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;    
+    max-width: 1000px;
+    padding: 20px;
+}

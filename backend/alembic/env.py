@@ -16,7 +16,7 @@ sys.path.insert(0, str(backend_dir))
 # tyto importy MUSÍ být až po sys.path.insert
 from app.db import Base
 from app.core.settings import settings
-from app.models import experiment  # noqa: F401  (důležité: registruje model)
+from app.models import experiment 
 
 # Alembic config
 config = cast(Config, context.config)

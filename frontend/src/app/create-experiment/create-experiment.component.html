@@ -1,2 +1,39 @@
-<h1>Create new experiment</h1>
-<p> Define the parameters for your A/B test to understand user behaviour and optimize product</p>
+<div class="body">
+    <h1>Create new experiment</h1>
+    <p> Define the parameters for your A/B test to understand user behaviour and optimize product</p>
+
+    <div class="experiment-details">
+        <h2>Experiment Details</h2>
+        <p>Experiment Name</p>
+        <input class="input-name" type="text" [(ngModel)]="experimentName" placeholder="Name of the experiment">
+        <p>Hypothesis</p>
+        <input class="input-name" type="text" [(ngModel)]="experimentDetails" placeholder="e.g., Changing the button color will increase click-through rates">
+    </div>
+
+    <article class="metrics-details">
+            <h2>Metrics</h2>
+            <!-- <section class="metrics-row">
+                <p>Primary Metrics</p>
+                <input class="input-name" type="text" [(ngModel)]="primaryMetrics" placeholder="Name of the experiment">
+            </section> -->
+
+            <form [formGroup]="primaryMetricsForm">
+                <p>Primary Metrics</p>
+                <select formControlName="primaryMetrics">
+                    <option [ngValue]="null" disabled> -- Select metrics -- </option>
+                    <option *ngFor="let o of options" value="o.value"> {{o.label}} </option>
+            <!-- </section> -->
+                </select>
+            </form>
+
+            <!-- <section class="metrics-row"> -->
+            <form [formGroup]="secondaryMetricsForm">
+                <p>Secondary Metrics (Optional)</p>
+                <select formControlName="secondaryMetrics">
+                    <option [ngValue]="null" disabled> -- Select metrics -- </option>
+                    <option *ngFor="let o of secondary_options" value="o.value"> {{o.label}} </option>
+            <!-- </section> -->
+                </select>
+            </form>
+        </article>
+</div>

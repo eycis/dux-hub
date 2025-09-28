@@ -19,7 +19,7 @@ class ExperimentVariant(Base):
     id: Mapped[int] = mapped_column(Integer, primary_key=True)
     experiment_id : Mapped[int] = mapped_column(ForeignKey("experiments.id", ondelete="CASCADE"))
     key: Mapped[str] = mapped_column(String(10), nullable=False)
-    description: Mapped[str | None] = mapped_column(String(200))
+    description: Mapped[str] = mapped_column(String(200))
     weight: Mapped[int] = mapped_column(Integer, default=50)
 
     experiment : Mapped["Experiment"] = relationship(back_populates="variants")

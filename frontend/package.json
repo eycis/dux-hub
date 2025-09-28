@@ -42,7 +42,7 @@
     "karma-jasmine-html-reporter": "~2.1.0",
     "typescript": "~5.7.2"
   },
-  "/api" : {
+  "/api": {
     "target": "http://localhost:8000",
     "secure": false,
     "changeOrigin": true,

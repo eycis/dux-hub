@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { HeaderComponent } from './components/header/header.component';
+import {FormsModule} from '@angular/forms'
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet,  HeaderComponent],
+  imports: [RouterOutlet,  HeaderComponent, FormsModule],
   template: ` 
     <app-header/>
       <main>
