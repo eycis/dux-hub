@@ -2,10 +2,11 @@ import { Component, inject, signal } from '@angular/core';
 import { Experiment } from '../model/experiment.type';
 import { ExperimentsService } from '../services/experiments.service';
 import { StatusCountPipe } from '../status-count.pipe';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-home',
-  imports: [StatusCountPipe],
+  imports: [StatusCountPipe, RouterLink],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })

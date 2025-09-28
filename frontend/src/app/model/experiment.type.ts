@@ -1,6 +1,9 @@
+import { ExperimentVariant } from "./experimentVariant.type";
+
 export type Experiment = {
-    Id: number;
+    id: number;
     name: string;
     hypothesis: string;
     status: string;
+    variants: ExperimentVariant[];
 }

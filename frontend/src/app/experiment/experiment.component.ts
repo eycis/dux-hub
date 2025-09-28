@@ -1,7 +1,6 @@
 import { Component, inject, OnInit, signal } from '@angular/core';
 import { ExperimentsService } from '../services/experiments.service';
 import { Experiment } from '../model/experiment.type';
-import { catchError } from 'rxjs';
 
 @Component({
   selector: 'app-experiment',
