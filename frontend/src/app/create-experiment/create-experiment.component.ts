@@ -7,36 +7,32 @@ import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 @Component({
   selector: 'app-create-experiment',
   imports: [FormsModule, 
-            FormsModule,
             CommonModule,
             ReactiveFormsModule ],
+  standalone: true,
   templateUrl: './create-experiment.component.html',
   styleUrl: './create-experiment.component.scss'
 })
 export class CreateExperimentComponent {
-    experimentName: string = "";
-    experimentDetails: string = "";
 
-    primaryMetricsForm = new FormGroup({
-      primaryMetrics : new FormControl<string | null>(null)
-    });
-
-    options= [
-      {value: "cr", label: "Conversion Rate"},
-      {value: "cr", label: "Conversion Rate"},
-      {value: "cr", label: "Conversion Rate"},
-    ];
-
-    submit() {console.log(this.primaryMetricsForm.value);}
-
-    secondaryMetricsForm = new FormGroup({
+    metricsDropdowns = new FormGroup({
+      primaryMetrics : new FormControl<string | null>(null),
       secondaryMetrics : new FormControl<string | null>(null)
     });
 
-    secondary_options= [
-      {value: "cr", label: "Conversion Rate"},
-      {value: "cr", label: "Conversion Rate"},
-      {value: "cr", label: "Conversion Rate"},
+    experimentName: string = "";
+    experimentDetails: string = "";
+
+    primary_options = [
+      { value: 'cr', label: 'Conversion Rate' },
+      { value: 'pv', label: 'Page Views' },
+      { value: 'ctr', label: 'Click-Through Rate' },
+    ];
+  
+    secondary_options = [
+      { value: 'bounce', label: 'Bounce Rate' },
+      { value: 'time', label: 'Time on Page' },
+      { value: 'aov', label: 'Avg. Order Value' },
     ];
 
     // submit() {console.log(this.primaryMetrics.value);}

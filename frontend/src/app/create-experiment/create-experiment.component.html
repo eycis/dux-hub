@@ -11,29 +11,23 @@
     </div>
 
     <article class="metrics-details">
-            <h2>Metrics</h2>
-            <!-- <section class="metrics-row">
-                <p>Primary Metrics</p>
-                <input class="input-name" type="text" [(ngModel)]="primaryMetrics" placeholder="Name of the experiment">
-            </section> -->
+        <h2>Metrics</h2>
+            <form [formGroup]="metricsDropdowns" class="metrics">
+                <section>
+                    <p>Primary Metrics</p>
+                    <select formControlName="primaryMetrics" class="input-name">
+                        <option [ngValue]="null" disabled> -- Select metrics -- </option>
+                        <option *ngFor="let o of primary_options" [value]="o.value"> {{o.label}} </option>
+                    </select>
+                </section>
 
-            <form [formGroup]="primaryMetricsForm">
-                <p>Primary Metrics</p>
-                <select formControlName="primaryMetrics">
-                    <option [ngValue]="null" disabled> -- Select metrics -- </option>
-                    <option *ngFor="let o of options" value="o.value"> {{o.label}} </option>
-            <!-- </section> -->
-                </select>
-            </form>
-
-            <!-- <section class="metrics-row"> -->
-            <form [formGroup]="secondaryMetricsForm">
+                <section>
                 <p>Secondary Metrics (Optional)</p>
-                <select formControlName="secondaryMetrics">
+                <select formControlName="secondaryMetrics" class="input-name">
                     <option [ngValue]="null" disabled> -- Select metrics -- </option>
-                    <option *ngFor="let o of secondary_options" value="o.value"> {{o.label}} </option>
-            <!-- </section> -->
+                    <option *ngFor="let o of secondary_options" [value]="o.value"> {{o.label}} </option>
                 </select>
+            </section>
             </form>
-        </article>
+    </article>
 </div>

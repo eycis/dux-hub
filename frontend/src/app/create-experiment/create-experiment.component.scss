@@ -17,8 +17,15 @@
     border: 2px solid rgb(199, 202, 202);
 }
 
-.metrics-row{
+.metrics{
     display: flex;
+    gap: 20px;
+}
+
+.metrics section{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
 }
 
 h1{
