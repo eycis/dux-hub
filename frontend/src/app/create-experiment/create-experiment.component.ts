@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import {FormsModule} from '@angular/forms'
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
-
+import { CreateExperimentService } from '../services/create-experiment.service';
 
 @Component({
   selector: 'app-create-experiment',
@@ -21,7 +21,10 @@ export class CreateExperimentComponent {
     });
 
     experimentName: string = "";
-    experimentDetails: string = "";
+    hypothesis: string = "";
+    totalTrafficSplit: number | null = null;
+    variantA : string = "";
+    variantB: string = "";
 
     primary_options = [
       { value: 'cr', label: 'Conversion Rate' },
@@ -35,6 +38,20 @@ export class CreateExperimentComponent {
       { value: 'aov', label: 'Avg. Order Value' },
     ];
 
-    // submit() {console.log(this.primaryMetrics.value);}
+    constructor(private api: CreateExperimentService){}
+
+    save() {
+      const dto = {
+        name: this.experimentName,
+        hypothesis : this.hypothesis,
+        primaryMetrics: this.metricsDropdowns.value.primaryMetrics,
+        secondaryMetrics: this.metricsDropdowns.value.secondaryMetrics,
+        variantA : this.variantA,
+        variantB : this.variantB,
+        totalTrafficSplit: this.totalTrafficSplit,
+      };
+
+      
+    }
 }
 

@@ -2,15 +2,15 @@
     <h1>Create new experiment</h1>
     <p> Define the parameters for your A/B test to understand user behaviour and optimize product</p>
 
-    <div class="experiment-details">
+    <div class="container">
         <h2>Experiment Details</h2>
         <p>Experiment Name</p>
         <input class="input-name" type="text" [(ngModel)]="experimentName" placeholder="Name of the experiment">
         <p>Hypothesis</p>
-        <input class="input-name" type="text" [(ngModel)]="experimentDetails" placeholder="e.g., Changing the button color will increase click-through rates">
+        <input class="input-name" type="text" [(ngModel)]="hypothesis" placeholder="e.g., Changing the button color will increase click-through rates">
     </div>
 
-    <article class="metrics-details">
+    <article class="container">
         <h2>Metrics</h2>
             <form [formGroup]="metricsDropdowns" class="metrics">
                 <section>
@@ -30,4 +30,22 @@
             </section>
             </form>
     </article>
+
+    <article class="container">
+        <h2>Variants & Traffic Split</h2>
+        <p>Total Traffic Split</p>
+        <input class="input-name" type="text" [(ngModel)]="totalTrafficSplit" placeholder="100 %">
+
+        <section class="variants">
+            <p>Variant A (Control)</p>
+            <input class="input-name" type="text" [(ngModel)]="variantA" placeholder="Color variant description">
+
+            <p>Variant B (Treatment)</p>
+            <input class="input-name" type="text" [(ngModel)]="variantB" placeholder="Treatment variant description">
+        </section>
+    </article>
+
+    <button class="create-button" type="submit">
+            Create Experiment
+    </button>
 </div>
