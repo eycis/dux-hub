@@ -19,4 +19,4 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-app.include_router(experiments_router, prefix="/experiments", tags=["experiments"])
+app.include_router(experiments_router, prefix="/api/experiments", tags=["experiments"])

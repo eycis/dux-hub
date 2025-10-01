@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import {FormsModule} from '@angular/forms'
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { CreateExperimentService } from '../services/create-experiment.service';
+import { ExperimentDto } from '../model/experimentDto.type';
 
 @Component({
   selector: 'app-create-experiment',
@@ -15,16 +16,17 @@ import { CreateExperimentService } from '../services/create-experiment.service';
 })
 export class CreateExperimentComponent {
 
-    metricsDropdowns = new FormGroup({
-      primaryMetrics : new FormControl<string | null>(null),
-      secondaryMetrics : new FormControl<string | null>(null)
+    experimentForm = new FormGroup({
+      name: new FormControl<string>("", {nonNullable: true}),
+      hypothesis: new FormControl<string>("",{nonNullable: true}),
+      // primaryMetrics : new FormControl<string | null>(null),
+      // secondaryMetrics : new FormControl<string | null>(null)
     });
 
-    experimentName: string = "";
-    hypothesis: string = "";
-    totalTrafficSplit: number | null = null;
-    variantA : string = "";
-    variantB: string = "";
+
+    // totalTrafficSplit: number | null = null;
+    // variantA : string = "";
+    // variantB: string = "";
 
     primary_options = [
       { value: 'cr', label: 'Conversion Rate' },
@@ -40,18 +42,17 @@ export class CreateExperimentComponent {
 
     constructor(private api: CreateExperimentService){}
 
-    save() {
-      const dto = {
-        name: this.experimentName,
-        hypothesis : this.hypothesis,
-        primaryMetrics: this.metricsDropdowns.value.primaryMetrics,
-        secondaryMetrics: this.metricsDropdowns.value.secondaryMetrics,
-        variantA : this.variantA,
-        variantB : this.variantB,
-        totalTrafficSplit: this.totalTrafficSplit,
-      };
+    submit() {
+      const dto : ExperimentDto = this.experimentForm.getRawValue();
 
-      
+      this.api.createExperiment(dto).subscribe({
+        next: (res) => {
+          console.log("saved:", res);
+        },
+        error: (error) => {
+          console.log("error:", error);
+        },
+      });
     }
 }
 

@@ -11,7 +11,7 @@ export class ExperimentsService {
   http = inject(HttpClient);
 
   getExperiments() {
-    const url = `http://localhost:8000/experiments`
+    const url = `http://localhost:8000/api/experiments`
     return this.http.get<Experiment[]>(url).pipe(
       catchError(error => { 
         console.error("Failed to load experiments", error);

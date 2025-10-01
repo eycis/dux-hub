@@ -13,6 +13,7 @@ async def list_experiments(db: Session = Depends(get_db)):
 
 @router.post("/", response_model = ExperimentRead, status_code=201)
 async def create_experiment(experiment: ExperimentCreate, db: Session = Depends(get_db)):
+    print("hello")
     return ExperimentService(db).create_experiment(experiment)
 
 @router.put("/{experiment_id}", response_model = ExperimentRead, status_code=201)

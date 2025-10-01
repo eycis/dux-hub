@@ -1,18 +1,21 @@
 <div class="body">
     <h1>Create new experiment</h1>
     <p> Define the parameters for your A/B test to understand user behaviour and optimize product</p>
-
+    <form [formGroup]="experimentForm" (ngSubmit)="submit()">
     <div class="container">
         <h2>Experiment Details</h2>
         <p>Experiment Name</p>
-        <input class="input-name" type="text" [(ngModel)]="experimentName" placeholder="Name of the experiment">
+        <section class="main-inputs">
+            <input class="input-name" type="text" formControlName="name" placeholder="Name of the experiment">
+        </section>
         <p>Hypothesis</p>
-        <input class="input-name" type="text" [(ngModel)]="hypothesis" placeholder="e.g., Changing the button color will increase click-through rates">
-    </div>
-
+        <section class="main-inputs">
+            <input class="input-name" type="text" formControlName="hypothesis" placeholder="e.g., Changing the button color will increase click-through rates">
+        </section>
+        </div>
+        <!-- class="metrics" -->
     <article class="container">
         <h2>Metrics</h2>
-            <form [formGroup]="metricsDropdowns" class="metrics">
                 <section>
                     <p>Primary Metrics</p>
                     <select formControlName="primaryMetrics" class="input-name">
@@ -28,10 +31,9 @@
                     <option *ngFor="let o of secondary_options" [value]="o.value"> {{o.label}} </option>
                 </select>
             </section>
-            </form>
     </article>
 
-    <article class="container">
+    <!-- <article class="container">
         <h2>Variants & Traffic Split</h2>
         <p>Total Traffic Split</p>
         <input class="input-name" type="text" [(ngModel)]="totalTrafficSplit" placeholder="100 %">
@@ -43,9 +45,10 @@
             <p>Variant B (Treatment)</p>
             <input class="input-name" type="text" [(ngModel)]="variantB" placeholder="Treatment variant description">
         </section>
-    </article>
+    </article> -->
 
     <button class="create-button" type="submit">
             Create Experiment
     </button>
+    </form>
 </div>
