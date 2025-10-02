@@ -20,13 +20,12 @@ export class CreateExperimentComponent {
       name: new FormControl<string>("", {nonNullable: true}),
       hypothesis: new FormControl<string>("",{nonNullable: true}),
       // primaryMetrics : new FormControl<string | null>(null),
-      // secondaryMetrics : new FormControl<string | null>(null)
+      // secondaryMetrics : new FormControl<string | null>(null),
+      key: new FormControl<string>("", {nonNullable: true}),
+      description : new FormControl<string>("",{nonNullable: true}),
+      weight: new FormControl<number>(0,{nonNullable: true}),
     });
 
-
-    // totalTrafficSplit: number | null = null;
-    // variantA : string = "";
-    // variantB: string = "";
 
     primary_options = [
       { value: 'cr', label: 'Conversion Rate' },
@@ -43,14 +42,28 @@ export class CreateExperimentComponent {
     constructor(private api: CreateExperimentService){}
 
     submit() {
-      const dto : ExperimentDto = this.experimentForm.getRawValue();
+      const raw = this.experimentForm.getRawValue();
+
+      const dto : ExperimentDto = {
+        name: raw.name,
+        hypothesis: raw.hypothesis,
+        variants: [
+          {
+            key: raw.key,
+            description: raw.description,
+            weight: raw.weight,
+          }
+        ]
+      };
 
       this.api.createExperiment(dto).subscribe({
+
         next: (res) => {
           console.log("saved:", res);
         },
         error: (error) => {
-          console.log("error:", error);
+          console.log("dto: ", dto);
+          console.log("error:", error.error.detail);
         },
       });
     }

@@ -7,15 +7,14 @@
     border: 2px solid rgb(199, 202, 202);
 }
 
+.container section {
+    display: flex;
+    flex-direction: column;
+}
+
 .metrics{
     display: flex;
     gap: 20px;
-}
-
-.metrics section{
-    flex: 1;
-    display: flex;
-    flex-direction: column;
 }
 
 .variants {
@@ -59,7 +58,6 @@ p{
     padding: 20px;
 }
 
-
 .create-button{
     background-color:rgb(44, 120, 143);
     color:white;
@@ -67,15 +65,11 @@ p{
     padding-block: 14px;
     border-radius: 14px;
     width: fit-content;
-    margin-left: auto;
     margin-right: 16px;
+    margin-right: auto;
     border: 0px;
     cursor: pointer;
     &:hover{
         background-color:rgb(31, 84, 100);
     }
-}
-
-.main-inputs {
-    flex:1;
 }

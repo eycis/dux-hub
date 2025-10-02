@@ -8,7 +8,7 @@ import { catchError, throwError } from 'rxjs';
 })
 export class ExperimentsService {
   
-  http = inject(HttpClient);
+  constructor(private http: HttpClient) {}
 
   getExperiments() {
     const url = `http://localhost:8000/api/experiments`
@@ -19,6 +19,4 @@ export class ExperimentsService {
       })
     );
   }
-
-  constructor() { }
 }

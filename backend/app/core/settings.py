@@ -2,7 +2,7 @@ from pydantic_settings import BaseSettings
 
 class Settings(BaseSettings):
     API_PREFIX: str = "/api"
-    CORS_ORIGINS: list[str] = ["http://localhost:4200"]
+    CORS_ORIGINS: list[str] = ["http://localhost:4200", "http://127.0.0.1:4200"]
     DATABASE_URL: str
 
     class Config:

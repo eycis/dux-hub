@@ -11,6 +11,6 @@ export class CreateExperimentService {
   constructor(private http: HttpClient) {}
 
   createExperiment(dto: ExperimentDto): Observable<any> {
-    return this.http.post("http://localhost:8000/api/experiments", dto);
+    return this.http.post(`http://localhost:8000/api/experiments`, dto);
   }
 }
