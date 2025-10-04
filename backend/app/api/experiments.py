@@ -1,15 +1,18 @@
 from fastapi import Depends, APIRouter
+from app.models.experiment import Experiment
 from app.services.experiment_service import ExperimentService
 from app.schemas.experiment import ExperimentRead, ExperimentCreate, ExperimentUpdate
 from app.db import get_db
-from sqlalchemy.orm import Session
+from sqlalchemy.orm import Session, selectinload
 
 router = APIRouter()
 
-@router.get("/", response_model=list[ExperimentRead])
+@router.get("", response_model=list[ExperimentRead])
 async def list_experiments(db: Session = Depends(get_db)):
-    experiments = ExperimentService(db).get_experiments()
-    return [ExperimentRead.model_validate(exp) for exp in experiments]
+    experiments = (db.query(Experiment).options(selectinload(Experiment.variants)).all())
+    return experiments
+    # experiments = ExperimentService(db).get_experiments()
+    # return [ExperimentRead.model_validate(exp) for exp in experiments]
 
 @router.post("/", response_model = ExperimentRead, status_code=201)
 async def create_experiment(experiment: ExperimentCreate, db: Session = Depends(get_db)):

@@ -1,4 +1,4 @@
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 from typing import List, Optional
 from enum import Enum
 
@@ -12,6 +12,7 @@ class VariantIn(BaseModel):
     key: str = Field(min_length=1, max_length=10)
     description : Optional[str] = Field(default=None, max_length= 200)
     weight: int = Field(ge=0, le=100, default=50)
+    ConfigDict(from_attributes= True)
 
 
 class VariantRead(VariantIn): 
@@ -35,4 +36,4 @@ class ExperimentRead(BaseModel):
     hypothesis:str
     status:str
     variants: List[VariantRead] = Field(default_factory = list)
-    model_config = {"from_attributes" : True}
+    model_config = ConfigDict(from_attributes= True)

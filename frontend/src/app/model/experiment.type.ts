@@ -5,5 +5,5 @@ export type Experiment = {
     name: string;
     hypothesis: string;
     status: string;
-    // variants: ExperimentVariant[];
+    variants: ExperimentVariant[];
 }

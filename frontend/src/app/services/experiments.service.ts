@@ -11,10 +11,10 @@ export class ExperimentsService {
   constructor(private http: HttpClient) {}
 
   getExperiments() {
-    const url = `http://localhost:8000/api/experiments`
+    const url = "http://localhost:8000/api/experiments"
     return this.http.get<Experiment[]>(url).pipe(
       catchError(error => { 
-        console.error("Failed to load experiments", error);
+        console.error("Failed to load experiments", error.error.detail);
         return throwError(() => error);
       })
     );

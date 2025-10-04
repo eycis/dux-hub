@@ -19,7 +19,7 @@ export class ExperimentComponent implements OnInit{
           this.experimentList.set(data);
         },
         error: (error) => {
-          console.error(error);
+          console.error(error.error.detail);
         }
       });
   }
