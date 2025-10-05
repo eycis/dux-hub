@@ -31,3 +31,16 @@ h1{
     padding-inline: 18px;
     font-size:x-large;
 }
+
+.mat-mdc-table {
+    border-radius: 12px;          
+    overflow: hidden;  
+    background: #fff;              
+    border: 1px solid #e0e0e0;    
+  }
+
+.mat-mdc-row{
+    transition: background-color 0.2s ease;
+    border-bottom: 1px solid #f0f0f0; 
+}
+
