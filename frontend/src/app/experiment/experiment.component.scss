@@ -9,3 +9,25 @@
 li{
     list-style:  none;
 }
+
+.body{
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;    
+    max-width: 1000px;
+    padding: 20px;
+}
+
+.container{
+    background-color: white;
+    border-radius: 10px;
+    margin: 20px;
+    flex-direction: column;
+    padding-block: 20px;
+    border: 2px solid rgb(199, 202, 202);
+}
+
+h1{
+    padding-inline: 18px;
+    font-size:x-large;
+}

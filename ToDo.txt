@@ -92,3 +92,11 @@ Backend: /feedback endpoints, základní sentiment (jednoduché skóre: +1/0/-1)
 Frontend: přidávání feedbacku (Reactive Form), seznam + filtry.
 
 PyTest pro services, Angular unit test pár komponent, docker-compose (api + db + web).
+
+
+
+//TODO: 
+UI pro experiments
+create+load komentáře a zobrazit je na hlavním dashboardu
+přes feedback udělat UI pro create comment.
+View experiment s grafem? 

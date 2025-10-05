@@ -7,7 +7,7 @@ from sqlalchemy.orm import Session, selectinload
 
 router = APIRouter()
 
-@router.get("", response_model=list[ExperimentRead])
+@router.get("/", response_model=list[ExperimentRead])
 async def list_experiments(db: Session = Depends(get_db)):
     experiments = (db.query(Experiment).options(selectinload(Experiment.variants)).all())
     return experiments
