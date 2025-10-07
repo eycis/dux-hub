@@ -20,3 +20,5 @@ app.add_middleware(
 )
 
 app.include_router(experiments_router, prefix="/api/experiments", tags=["experiments"])
+
+app.include_router(experiments_router, prefix="/api/comments", tags=["comments"])
