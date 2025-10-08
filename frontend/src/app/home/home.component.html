@@ -34,27 +34,11 @@
 
 <h2>Recent Feedback</h2>
 
-<article class="comment-tile">
-    <h3> Name Placeholder
-    </h3>
-    <p class="comment-text">
-        <!-- TODO: switch to comments:-->
-        placeholder comment text
-    </p>
-</article>
-<article class="comment-tile">
-    <h3> Name Placeholder
-    </h3>
-    <p class="comment-text">
-        <!-- TODO: switch to comments:-->
-        placeholder comment text
-    </p>
-</article>
-<article class="comment-tile">
-    <h3> Name Placeholder
-    </h3>
-    <p class="comment-text">
-        <!-- TODO: switch to comments:-->
-        placeholder comment text
-    </p>
-</article>
+<div class="comments-container">
+    <article class="comment-tile" *ngFor="let comment of commentList()">
+        <h3> {{comment.title}}</h3>
+        <p class="comment-text">
+            {{comment.text}}            
+        </p>
+    </article>
+</div>
