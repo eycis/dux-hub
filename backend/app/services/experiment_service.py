@@ -2,10 +2,8 @@ from typing import List
 from sqlalchemy import select
 from sqlite3 import IntegrityError
 from fastapi import HTTPException
-from sqlalchemy import select
-from sqlalchemy.orm import Session
-from app.models.experiment import Experiment, ExperimentVariant
 from sqlalchemy.orm import Session, selectinload
+from app.models.experiment import Experiment, ExperimentVariant
 from app.schemas.experiment import ExperimentCreate, ExperimentRead, ExperimentUpdate
 
 class ExperimentService:

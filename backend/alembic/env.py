@@ -17,6 +17,9 @@ sys.path.insert(0, str(backend_dir))
 from app.db import Base
 from app.core.settings import settings
 from app.models import experiment 
+import app.models.comment 
+
+print("ALEMBIC DB URL =", settings.DATABASE_URL)  # dočasně
 
 # Alembic config
 config = cast(Config, context.config)

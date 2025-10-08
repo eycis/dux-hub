@@ -14,4 +14,4 @@ async def get_comments(db: Session = Depends(get_db)):
 
 @router.post("/", response_model=CommentCreate)
 async def create_comment(comment: CommentCreate, db: Session = Depends(get_db)):
-    return CommentService.create_comment(db, comment)
+    return CommentService(db).create_comment(comment)

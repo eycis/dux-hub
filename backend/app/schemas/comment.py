@@ -1,6 +1,4 @@
-from pydantic import BaseModel, ConfigDict, Field
-from typing import List, Optional
-from enum import Enum
+from pydantic import BaseModel, Field
 
 
 class CommentBase(BaseModel): 
@@ -10,7 +8,6 @@ class CommentBase(BaseModel):
 class CommentCreate(CommentBase): 
     pass
 
-class CommentRead(BaseModel): 
+class CommentRead(CommentBase): 
     id: int
-
     model_config = {"from_attributes": True}

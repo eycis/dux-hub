@@ -8,6 +8,9 @@ from fastapi.middleware.cors import CORSMiddleware
 from app.core.settings import settings
 # from app.api.routes import router as api_router
 from app.api.experiments import router as experiments_router
+from app.api.comments import router as comments_router
+print("APP DB URL =", settings.DATABASE_URL)
+
 
 app = FastAPI(title="DUX Hub API")
 
@@ -21,4 +24,4 @@ app.add_middleware(
 
 app.include_router(experiments_router, prefix="/api/experiments", tags=["experiments"])
 
-app.include_router(experiments_router, prefix="/api/comments", tags=["comments"])
+app.include_router(comments_router, prefix="/api/comments", tags=["comments"])
