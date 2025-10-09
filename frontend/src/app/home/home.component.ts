@@ -33,6 +33,8 @@ export class HomeComponent {
       this.commentsService.getComments()
       .pipe().subscribe({
         next: (data) => {
+          //TODO: sort already in service?
+          data = data.sort((a,b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()).slice(0,3);
           this.commentList.set(data);
         },
         error: (error) => {

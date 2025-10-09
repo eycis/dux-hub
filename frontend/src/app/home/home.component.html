@@ -40,5 +40,8 @@
         <p class="comment-text">
             {{comment.text}}            
         </p>
+        <p class="comment-text">
+            {{ comment.createdAt | date: 'shortDate' }}         
+        </p>
     </article>
 </div>
