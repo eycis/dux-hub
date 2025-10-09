@@ -68,7 +68,9 @@ p{
     border-radius: 10px;
     margin: 20px;
     flex:1;
-    padding-block: 24px;
+    flex-direction: column; /* aby texty byly pod sebou */
+    justify-content: space-between;
+    padding-block: 18px;
     border: 2px solid rgb(199, 202, 202);
 }
 
@@ -81,5 +83,21 @@ p{
 h3{
     padding-inline: 18px;
     margin-top: 2px;
-    font-size: small;
+    font-size:medium;
+}
+
+.comment-date{
+    margin-left: 18px;
+    margin-top: 12px;
+    font-size:x-small;
+    text-align: right;
+}
+
+
+.body{
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;    
+    max-width: 1000px;
+    padding: 20px;
 }
