@@ -26,8 +26,14 @@
             </ng-container>
 
             <tr mat-header-row *matHeaderRowDef="displayColumns"></tr>
-            <tr mat-row *matRowDef="let displayColumns; columns: displayColumns"></tr>
-
+            <!-- <tr mat-row *matRowDef="let displayColumns; columns: displayColumns"></tr> -->
+            <tr mat-row 
+                *matRowDef="let row; columns: displayColumns" 
+                (click)="openExperiment(row)"
+                (keydown.enter) = "openExperiment(row)"
+                tabindex = "0"
+                class="clickable-row">
+            </tr>
         </table>
 
 </div>

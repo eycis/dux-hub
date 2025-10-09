@@ -6,7 +6,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { ReactiveFormsModule, FormControl } from '@angular/forms';
 import { debounceTime, distinctUntilChanged, startWith } from 'rxjs/operators';
-import { MatTableDataSource } from '@angular/material/table';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -20,6 +20,7 @@ import { MatTableDataSource } from '@angular/material/table';
   styleUrl: './experiment.component.scss'
 })
 export class ExperimentComponent implements OnInit{
+  constructor(private router : Router) {}
   private experimentService = inject(ExperimentsService);
   experimentList = signal<Array<Experiment>>([]);
   public displayColumns : string[] = ["Name", "Status", "Hypothesis"];
@@ -36,7 +37,9 @@ export class ExperimentComponent implements OnInit{
     );
   });
   
-
+  openExperiment(experiment : {id: string}){
+    this.router.navigate(["/experiments", experiment.id]);
+  }
 
   ngOnInit(): void {
     this.experimentService.getExperiments()

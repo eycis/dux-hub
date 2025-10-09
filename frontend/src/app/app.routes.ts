@@ -44,4 +44,11 @@ export const routes: Routes = [
             return import("./create-experiment/create-experiment.component").then((m)=> m.CreateExperimentComponent);
         },
     },
+    {
+        path: "experiment/:id",
+        pathMatch: "full",
+        loadComponent : () => {
+            return import("./experiment-view/experiment-view.component").then((m)=> m.ExperimentViewComponent);
+        },
+    },
 ];
