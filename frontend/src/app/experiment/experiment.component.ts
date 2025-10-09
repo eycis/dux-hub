@@ -38,7 +38,7 @@ export class ExperimentComponent implements OnInit{
   });
   
   openExperiment(experiment : {id: string}){
-    this.router.navigate(["/experiments", experiment.id]);
+    this.router.navigate(["/experiment", experiment.id]);
   }
 
   ngOnInit(): void {

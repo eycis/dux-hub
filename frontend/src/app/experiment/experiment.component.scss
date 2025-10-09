@@ -44,7 +44,11 @@ h1{
     border-bottom: 1px solid #f0f0f0; 
 }
 
-.clickable-row { cursor: pointer; }
-.clickable-row:focus { outline: 2px solid #3f51b5; }
+.clickable-row { 
+    cursor: pointer; 
+}
+.clickable-row:focus { 
+    outline: 2px solid #3f51b5; 
+}
 
 
