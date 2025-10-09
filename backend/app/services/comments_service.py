@@ -11,7 +11,7 @@ class CommentService:
     def get_comments(self) -> List[Comment]:
         return self.db.query(Comment).all()
     
-    def create_comment(self, data: CommentCreate): 
+    def create_comment(self, data: CommentCreate) -> Comment: 
         comment_instance = Comment(**data.model_dump())
         self.db.add(comment_instance)
         self.db.commit()
