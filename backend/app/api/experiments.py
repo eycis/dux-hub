@@ -11,8 +11,10 @@ router = APIRouter()
 async def list_experiments(db: Session = Depends(get_db)):
     experiments = (db.query(Experiment).options(selectinload(Experiment.variants)).all())
     return experiments
-    # experiments = ExperimentService(db).get_experiments()
-    # return [ExperimentRead.model_validate(exp) for exp in experiments]
+
+@router.get("/{id}", response_model=ExperimentRead)
+async def get_experiment(id: int, db: Session = Depends(get_db)):
+    return ExperimentService(db).get_by_id(id)
 
 @router.post("/", response_model = ExperimentRead, status_code=201)
 async def create_experiment(experiment: ExperimentCreate, db: Session = Depends(get_db)):

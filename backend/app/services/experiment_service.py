@@ -44,6 +44,12 @@ class ExperimentService:
                                .options(selectinload(Experiment.variants))
                                ).scalars().all()
     
+    def get_by_id(self, experiment_id: int) -> Experiment:
+        return self.db.execute(select(Experiment)
+                            .options(selectinload(Experiment.variants))
+                            ).filter(Experiment.id == experiment_id).first()
+
+    
     def update_experiment(self, experiment_id: int, data: ExperimentUpdate) -> Experiment:
         exp = self._get_or_404(experiment_id)
 
